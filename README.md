@@ -45,3 +45,5 @@ else works normally.
 No source, no personal data, no API keys or model-server addresses of
 mine, and no license — please don't redistribute or modify what you
 download without asking first.
+
+The external voice service that I use to hear and speak to this agent is not included either.
