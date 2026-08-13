@@ -9,23 +9,36 @@ This repository intentionally contains **no source code** — only compiled,
 ready-to-run builds, published under **Releases**. This is a personal
 project I'm not ready to open-source yet, but wanted to let people try.
 
-## Get it
+## Setup
 
-See the [Releases](../../releases) page for downloads:
+1. Go to [Releases](../../releases/latest) and download:
+   - **`omega-acad-windows.zip`** — the engine. This is the core daemon:
+     the cognitive loop, a local HTTP+WebSocket API, and an MCP server.
+     (Windows only for now.)
+   - The visualization client for your OS: **`omega-viz-windows.zip`**,
+     **`omega-viz-linux.zip`**, or **`omega-viz-macos.zip`**. This is the
+     3D viewer — optional, but it's the easiest way to actually watch the
+     engine think.
+2. Extract `omega-acad-windows.zip` to its own folder, and extract the viz
+   zip to another folder.
+3. **Start the engine first.** In the engine's folder, just run
+   `omega-acad.exe` (double-click, or from a terminal). No setup is
+   required to see it come up — with no configuration at all it starts
+   with safe built-in fallbacks (no real model calls, a fresh empty local
+   database) and begins listening on `http://127.0.0.1:8787`.
+   - To connect it to real language models, copy `.env.example` (included
+     in the zip) to `.env` in the same folder and fill in your own model
+     server(s) — local Ollama/llama.cpp, or a hosted OpenAI-compatible
+     endpoint — then restart it. Every setting is commented and optional.
+4. **Then start the visualization.** On Linux, `chmod +x omega-viz.x86_64`
+   first. It connects automatically to the engine on `127.0.0.1:8787` —
+   just launch it while the engine from step 3 is still running.
+5. Type into the engine's own console window (or use the visualization) to
+   talk to it.
 
-- **`omega-acad-windows.zip`** — the engine (Windows). This is the core
-  daemon: the cognitive loop, a local HTTP+WebSocket API, and an MCP
-  server. Runs standalone from a terminal or by double-clicking.
-- **`omega-viz-windows.zip`** / **`omega-viz-linux.zip`** /
-  **`omega-viz-macos.zip`** — the 3D visualization client (Godot). Connects
-  to a running engine on `127.0.0.1:8787`.
-
-Each zip includes its own short README with run instructions. The engine
-package includes a `.env.example` — copy it to `.env` to point the engine
-at your own model servers (local Ollama/llama.cpp, or a hosted
-OpenAI-compatible endpoint), your own PDF library folder, etc. It also runs
-with no configuration at all, using safe placeholder fallbacks, so you can
-see it come up before wiring in any model.
+Known limitation: the visualization's "Run Tests" panel won't work — it
+talks to a dev-only endpoint that isn't included in this build. Everything
+else works normally.
 
 ## What's *not* here
 
