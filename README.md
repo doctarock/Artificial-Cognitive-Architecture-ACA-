@@ -1,3 +1,5 @@
+![preview](https://repository-images.githubusercontent.com/1317817417/6d7f8c42-e3a0-4232-baf3-4f03f5597356)
+
 # Artificial Cognitive Architecture (ACA)
 
 A cognitive-architecture experiment: a continuously running "cognitive loop"
